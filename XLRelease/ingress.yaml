@@ -16,4 +16,4 @@ spec:
           service:
             name: svc-xlrelease
             port:
-              number: 5516
+              number: 5516 
