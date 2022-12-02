@@ -4,7 +4,7 @@ metadata:
   labels:
     app: xlrelease
   name: xlrelease-disk
-provisioner: local
+provisioner: k8s.io/minikube-hostpath
 mountOptions:
   - dir_mode=0777
   - file_mode=0777

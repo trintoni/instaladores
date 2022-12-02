@@ -14,6 +14,10 @@ spec:
       labels:
         app: xlrelease 
     spec:
+      volumes:
+        - name: xldisk
+          persistentVolumeClaim:
+            claimName: xlrelease-disk-pvc
       containers:
       - name: xlrelease
         image:  xebialabs/xl-release
@@ -23,4 +27,26 @@ spec:
           - name: ACCEPT_EULA
             value: "Y"
         ports:
-        - containerPort: 5516 
+        - containerPort: 5516
+        volumeMounts:
+          - name: xldisk
+            mountPath: /opt/xebialabs/xl-release-server/conf
+            subPath: conf
+          - name: xldisk
+            mountPath: /opt/xebialabs/xl-release-server/hotfix/
+            subPath: hotfix
+          - name: xldisk
+            mountPath: /opt/xebialabs/xl-release-server/ext/
+            subPath: ext  
+          - name: xldisk
+            mountPath: /opt/xebialabs/xl-release-server/plugins/
+            subPath: xlrelease-disk
+          - name: xldisk
+            mountPath: /opt/xebialabs/xl-release-server/repository/
+            subPath: repository
+          - name: xldisk
+            mountPath: /opt/xebialabs/xl-release-server/archive/
+            subPath: archive
+          - name: xldisk
+            mountPath: /opt/xebialabs/xl-release-server/reports/
+            subPath: reports
