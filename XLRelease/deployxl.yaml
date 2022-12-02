@@ -30,7 +30,7 @@ spec:
         - containerPort: 5516
         volumeMounts:
           - name: xldisk
-            mountPath: /opt/xebialabs/xl-release-server/conf
+            mountPath: /opt/xebialabs/xl-release-server/conf/
             subPath: conf
           - name: xldisk
             mountPath: /opt/xebialabs/xl-release-server/hotfix/
