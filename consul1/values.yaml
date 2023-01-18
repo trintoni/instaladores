@@ -9,7 +9,7 @@ global:
  datacenter: dc1
  # Enables TLS across the cluster to verify authenticity of the Consul servers and clients.
  tls:
-   enabled: false 
+   enabled: true
  # Enables ACLs across the cluster to secure access to data and APIs.
  acls:
    # If true, automatically manage ACL tokens and policies for all Consul components.

@@ -12,6 +12,8 @@ kubectl create namespace harbor
 sleep 10
 helm repo add harbor https://helm.goharbor.io -n harbor
 helm install my-release harbor/harbor -n harbor
+echo "Aguarde enquanto os pods sobem e se configuram"
+sleep 200
 eval $(minikube docker-env)
 kubectl -n harbor get secrets harbor-ingress -o jsonpath="{.data['ca\.crt']}" | base64 -d > harbor-ca.crt
 scp -o IdentitiesOnly=yes -i $(minikube ssh-key) harbor-ca.crt docker@$(minikube ip):./harbor-ca.crt
